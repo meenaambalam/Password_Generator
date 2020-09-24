@@ -1,8 +1,11 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Generate Password and covert from string to number for validation purpose
+
+// Function to generate the Random Password
 function generatePassword() {
+
+  // Define all the variables that are needed for the password generator functionality
   var pwLength = 0;
   var validLen = false;
   var validCriteria = false;
@@ -17,14 +20,7 @@ function generatePassword() {
   var vld_pwChars = '';
   var resultPassword = '';
 
-  while (!validLen) {
-    pwLength = parseInt(prompt("Choose a password length of at least 8 characters and no more than 128 characters"));
-    alert("pwLength: " + pwLength);
-    if (pwLength >= 8 && pwLength <= 128 && (pwLength != null)) {
-      validLen = true;
-    }
-    alert("validateLen: " + validLen);
-  }
+  // Prompt the user for the password criteria they would like to include and capture their response
 
   while (!validCriteria) {
     promptCharLowCase = confirm("Do you want to include lowercase in the Password?");
@@ -39,43 +35,41 @@ function generatePassword() {
       validCriteria = false;
       alert("You need to choose at least one of the given Criteria\'s to generate password");
     }
-    alert("Crietria: " + validCriteria);
   }
+
+  // Prompt the user for the length of the password, until they enter a value between 8 and 128.
+
+  while (!validLen) {
+    pwLength = parseInt(prompt("Choose a password length of at least 8 characters and no more than 128 characters"));
+
+    if (pwLength >= 8 && pwLength <= 128) {
+      validLen = true;
+    }
+  }
+
+  // Build the valid password string list based on the criteria choices users picked
 
   if (promptCharLowCase) {
     vld_pwChars += vld_lowcaseChar;
   }
 
-  alert('1. concatenated password so far: ' + vld_pwChars);
-
   if (promptCharUpCase) {
     vld_pwChars += vld_uppercaseChar;
   }
-
-  alert('2. concatenated password so far: ' + vld_pwChars);
 
   if (promptNum) {
     vld_pwChars += vld_numbers;
   }
 
-  alert('3. concatenated password so far: ' + vld_pwChars);
-
   if (promptSpecChar) {
     vld_pwChars += vld_specChars;
   }
 
-  alert('final selected valid password chars: ' + vld_pwChars);
-  alert('pw length user given: ' + pwLength);
-  alert('valid pw character list length: ' + vld_pwChars.length);
-
+  // Randomly generate password (of the particular length) from the valid password string list
   for (var i = 0; i < pwLength; i++) {
     var rndmChar = Math.floor(Math.random() * vld_pwChars.length);
-    resultPassword += vld_pwChars.charAt(rndmChar);
+    resultPassword += vld_pwChars[rndmChar];
   }
-
-  alert("resultant password: " + resultPassword);
-  console.log(resultPassword);
-
   return resultPassword;
 }
 
