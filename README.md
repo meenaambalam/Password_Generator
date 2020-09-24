@@ -30,17 +30,14 @@ Based on these two user input information, the password generator generates rand
 
 ## ScreenShot
 
-```
 The following image shows the web application's appearance with the random password generated and displayed in the textarea:
 
 ![password generator screenshot](./Assets/Password_generator_screenshot.png)
 
-```
 
 ## URL for deployed application and GitHub repo
 
-```
+
 * The URL of the deployed application - https://meenaambalam.github.io/Password_Generator/
 * The URL of the GitHub repository - https://github.com/meenaambalam/Password_Generator
 
-```
