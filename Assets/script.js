@@ -45,6 +45,9 @@ function generatePassword() {
     if (pwLength >= 8 && pwLength <= 128) {
       validLen = true;
     }
+    else {
+      alert(" Please enter a valid length (between 8 & 128)!");
+    }
   }
 
   // Build the valid password string list based on the criteria choices users picked
